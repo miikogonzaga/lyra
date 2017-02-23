@@ -1,0 +1,24 @@
+html {
+  height: 100%;
+  font-size: 100%;
+}
+
+body {
+  font-family: 'Open Sans';
+  color: white;
+  min-height: 100%; /* minimum height of the body is 100% */
+}
+
+body.landing {
+    background-color: rgb(58,23,63);
+}
+
+.navbar {
+    padding: .5rem;
+    background-color: rgb(101,18,95);
+}
+
+.navbar .logo {
+    position: relative;
+    left: 2rem;
+}
