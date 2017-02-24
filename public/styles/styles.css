@@ -1,3 +1,11 @@
+/* Global styles */
+
+*, *::before, *::after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 html {
   height: 100%;
   font-size: 100%;
@@ -54,19 +62,10 @@ body.landing {
 
 /************************* SELLING POINTS ****************************/
 
-.selling-points {
-   position: relative;
-   display: table;
-   width: 100%;
-   -webkit-box-sizing: border-box;
-   -moz-box-sizing: border-box;
-   box-sizing: border-box;
- }
+.selling-points { position: relative; }
 
 .point {
-  display: table-cell;
   position: relative;
-  width: 33.3%;
   padding: 2rem;
   text-align: center;
 }
@@ -80,4 +79,34 @@ body.landing {
 .ion-iphone {
     color: rgb(233,50,117);
     font-size: 5rem;
+}
+
+/************************* Media Queries ****************************/
+
+.container {
+  margin: 0 auto;
+  max-width: 64rem;
+}
+
+/* Medium and Small screens */
+@media (min-width: 640px) {
+  html { font-size: 112%; }
+
+  .column {
+    float: left; /* Pulls floated items out of normal document flow */
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .column.full { width: 100%; }
+  .column.two-thirds { width: 66.7%; }
+  .column.half { width: 50%; }
+  .column.third { width: 33.3%; }
+  .column.fourth { width: 25%; }
+  .column.flow-opposite { float: right; }
+}
+
+/* Large screens */
+@media (min-width: 1024px) {
+  html { font-size: 120%; }
 }
