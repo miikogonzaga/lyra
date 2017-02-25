@@ -64,7 +64,9 @@ body.landing {
   cursor: pointer;
 }
 
-.links-container .navbar-link:hover { color: rgb(233,50,117); }
+.links-container
+.navbar-link:hover { color: rgb(233,50,117); }
+.navbar-link:active { background-color: rgb(255,255,255); }
 
 /************************* HERO CONTENT ****************************/
 
