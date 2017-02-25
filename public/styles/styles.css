@@ -24,21 +24,56 @@ body.landing {
 /************************* NAVBAR ****************************/
 
 .navbar {
+  position: relative;
   padding: .5rem; /* rem represents the font size of the root element (html) */
-  background-color: rgb(101,18,95);
+  background-color: rgba(101,18,95,.5);
+  z-index: 1;
 }
 
 .navbar .logo {
   position: relative;
   left: 2rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: rgb(255,255,255);
 }
+
+.navbar .links-container {
+  display: table;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100px;
+  color: white;
+  text-decoration: none;
+}
+
+.links-container .navbar-link {
+  display: table-cell;
+  position: relative;
+  height: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  vertical-align: middle;
+  color: white;
+  font-size: .625rem;
+  letter-spacing: .05rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.links-container
+.navbar-link:hover { color: rgb(233,50,117); }
+.navbar-link:active { background-color: rgb(255,255,255); }
 
 /************************* HERO CONTENT ****************************/
 
 .hero-content {
   position: relative;
   min-height: 600px;
-  background-image: url(images/background.jpg);
+  background-image: url(images/backgrounds/background.jpg);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
