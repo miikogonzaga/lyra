@@ -123,6 +123,10 @@ body.landing {
   max-width: 64rem;
 }
 
+.container.narrow {
+    max-width: 56rem;
+}
+
 /* Medium and Small screens */
 @media (min-width: 640px) {
   html { font-size: 112%; }
