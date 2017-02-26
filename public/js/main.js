@@ -9,7 +9,7 @@ const animatePoints = (points) => {
     points[index].style.WebkitTransform = "scaleX(1) translateY(0)"
   }
 
-  // Loops through each
+  // Loops through each selling point and calls revealPoint with its index passed in
   for (let i = 0; i < points.length; i++) { revealPoint(i) }
 
 }
