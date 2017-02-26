@@ -1,34 +1,26 @@
-const animatePoints = () => {
+const points = document.getElementsByClassName('point')
 
-  const points = document.getElementsByClassName('point')
+const animatePoints = (points) => {
 
-  const revealFirstPoint = () => {
-    points[0].style.opacity = 1
-    points[0].style.transform = "scaleX(1) translateY(0)"
-    points[0].style.msTransform = "scaleX(1) translateY(0)"
-    points[0].style.WebkitTransform = "scaleX(1) translateY(0)"
+  const revealPoint = (index) => {
+    points[index].style.opacity = 1
+    points[index].style.transform = "scaleX(1) translateY(0)"
+    points[index].style.msTransform = "scaleX(1) translateY(0)"
+    points[index].style.WebkitTransform = "scaleX(1) translateY(0)"
   }
 
-  const revealSecondPoint = () => {
-    points[1].style.opacity = 1
-    points[1].style.transform = "scaleX(1) translateY(0)"
-    points[1].style.msTransform = "scaleX(1) translateY(0)"
-    points[1].style.WebkitTransform = "scaleX(1) translateY(0)"
-  }
-
-  const revealThirdPoint = () => {
-    points[2].style.opacity = 1
-    points[2].style.transform = "scaleX(1) translateY(0)"
-    points[2].style.msTransform = "scaleX(1) translateY(0)"
-    points[2].style.WebkitTransform = "scaleX(1) translateY(0)"
-  }
-
-  revealFirstPoint()
-  revealSecondPoint()
-  revealThirdPoint()
+  for (let i = 0; i < points.length; i++) { revealPoint(i) }
 
 }
 
 window.onload = () => {
-  animatePoints()
+
+  const sellingPoints = document.getElementsByClassName('selling-points')[0]
+  const scrollDistance = sellingPoints.getBoundingClientRect().top - window.innerHeight + 100
+
+  window.addEventListener('scroll', () => {
+    if (document.documentElement.scrollTop || document.body.scrollTop >= scrollDistance) {
+      animatePoints(points)
+    }
+  })
 }
