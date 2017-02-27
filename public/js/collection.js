@@ -1,13 +1,13 @@
 const collectionTemplate =
-  '<div class="collection-album-container column fourth">'
-  + '  <img src="../styles/images/album_covers/01.png"/>'
+  '<div class="collection-album-container column third">'
+  + '  <img src="https://upload.wikimedia.org/wikipedia/en/a/a1/Radiohead.okcomputer.albumart.jpg"/>'
   + '  <div class="collection-album-info caption">'
   + '    <p>'
-  + '      <a class="album-name" href="album.html"> The Colors </a>'
+  + '      <a class="album-name" href="album.html">OK Computer</a>'
   + '      <br/>'
-  + '      <a href="album.html"> Pablo Picasso </a>'
+  + '      <a href="album.html">Radiohead</a>'
   + '      <br/>'
-  + '      X songs'
+  + '      12 songs'
   + '      <br/>'
   + '    </p>'
   + '  </div>'
@@ -19,7 +19,7 @@ window.onload = () => {
 
   collectionContainer.innerHTML = ''
 
-  for (var i = 0; i < 8; i++) {
+  for (let i = 0; i < 1; i++) {
       collectionContainer.innerHTML += collectionTemplate
   }
 }
