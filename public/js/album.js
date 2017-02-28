@@ -18,7 +18,7 @@ const albumOkComputer = {
      { title: 'Lucky', duration: '4:20'},
      { title: 'The Tourist', duration: '5:25'}
   ]
-};
+}
 
 // Creates song rows
 const createSongRow = (songNumber, songName, songLength) => {
@@ -32,7 +32,7 @@ const createSongRow = (songNumber, songName, songLength) => {
    ;
 
   return template;
-};
+}
 
 // Sets the current album
 const setCurrentAlbum = (album) => {
@@ -53,8 +53,14 @@ const setCurrentAlbum = (album) => {
   for (let i = 0; i < album.songs.length; i++) {
       albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
   }
-};
+}
+
+const songListContainer = document.getElementsByClassName('album-view-song-list')[0]
 
 window.onload = () => {
-  setCurrentAlbum(albumOkComputer);
-};
+  setCurrentAlbum(albumOkComputer)
+
+  songListContainer.addEventListener('mouseover', (event) => {
+    console.log(event.target)
+  })
+}
