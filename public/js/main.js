@@ -1,5 +1,7 @@
 const points = document.getElementsByClassName('point')
+const heroTitle = document.getElementsByClassName('hero-title')
 
+// Animates the selling points
 const animatePoints = (points) => {
 
   const revealPoint = (index) => {
@@ -14,7 +16,19 @@ const animatePoints = (points) => {
 
 }
 
+// Animates the hero-title on page load
+const animateHeroTitle = (heroTitle) => {
+
+    heroTitle[0].style.opacity = 1
+    heroTitle[0].style.transform = "scaleX(1) translateY(0)"
+    heroTitle[0].style.msTransform = "scaleX(1) translateY(0)"
+    heroTitle[0].style.WebkitTransform = "scaleX(1) translateY(0)"
+
+}
+
 window.onload = () => {
+
+  animateHeroTitle(heroTitle)
 
   // Animates the selling points for taller screens
   if (window.innerHeight > 950) animatePoints(points)
