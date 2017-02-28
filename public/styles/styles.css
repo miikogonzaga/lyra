@@ -147,6 +147,14 @@ h1 { display: inline-block; }
 
 .container.narrow { max-width: 56rem; }
 
+/* Phones */
+@media (min-width: 320px)
+   and (max-width: 640px){
+  .hero-content .hero-title {
+    top: 15%;
+  }
+}
+
 /* Medium and Small screens */
 @media (min-width: 640px) {
   html { font-size: 112%; }
