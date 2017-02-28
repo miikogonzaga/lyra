@@ -47,13 +47,37 @@ body.album {
  border-bottom: 1px solid rgba(255,255,255,.5);
 }
 
-.song-item-number { width: 5%; }
+.song-item-number {
+  width: 5%;
+  min-width: 30px; /* Keeps the container from going to small to make room for the hover play button */
+ }
 
 .song-item-title { width: 75%; }
 
 .song-item-duration { width: 10%; }
 
-.song-play-count { width: 5%; }
+/*** Play button when user hovers ***/
+.album-song-button {
+   text-align: center;
+   font-size: 14px;
+   background-color: white;
+   color: rgb(210,40,123);
+   border-radius: 50% 50%;
+   display: inline-block;
+   width: 28px;
+   height: 28px;
+ }
+
+ .album-song-button:hover {
+   cursor: pointer;
+   color: white;
+   background-color: rgb(210,40,123);
+ }
+
+ .album-song-button span {
+    line-height: 28px;
+ }
+ /*** Play button when user hovers ***/
 
 /************************* Media Queries ****************************/
 

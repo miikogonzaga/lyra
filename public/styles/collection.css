@@ -6,9 +6,7 @@ body.collection {
   background-size: cover;
 }
 
-.album-covers {
-  position: relative;
-}
+.album-covers { position: relative; }
 
 .collection-album-container {
   position: relative;
@@ -17,9 +15,7 @@ body.collection {
   text-align: center;
 }
 
-.collection-album-container .caption {
-  margin-top: 10px;
-}
+.collection-album-container .caption { margin-top: 10px; }
 
 .collection-album-container .caption p {
   font-size: 1rem;
@@ -27,14 +23,8 @@ body.collection {
   color: rgba(255,255,255,.6);
 }
 
-.collection-album-container .caption p a {
-  color: rgba(255,255,255,.6);
-}
+.collection-album-container .caption p a { color: rgba(255,255,255,.6); }
 
-.collection-album-container .caption p a.album-name {
-  color: white;
-}
+.collection-album-container .caption p a.album-name { color: white; }
 
-.collection-album-container img {
-  width: 80%;
-}
+.collection-album-container img { width: 80%; }
