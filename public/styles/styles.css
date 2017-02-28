@@ -17,9 +17,9 @@ body {
   min-height: 100%; /* minimum height of the body is 100% */
 }
 
-body.landing {
-  background-color: rgb(58,23,63);
-}
+body.landing { background-color: rgb(58,23,63); }
+
+h1 { display: inline-block; }
 
 /************************* NAVBAR ****************************/
 
@@ -81,7 +81,7 @@ body.landing {
 
 .hero-content .hero-title {
   position: absolute;
-  top: 40%;
+  top: 30%;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -93,17 +93,7 @@ body.landing {
   text-transform: uppercase;
   letter-spacing: .5rem;
   text-shadow: 1px 1px 0px rgb(58,23,63); /* Shadow underneath text for improved readability */
-}
-
-/************************* SELLING POINTS ****************************/
-
-.selling-points { position: relative; }
-
-.point {
-  position: relative;
-  padding: 2rem;
-  text-align: center;
-  /* animations */
+  /* Animation for hero-title */
   opacity: 0;
   -webkit-transform: scaleX(.9) translateY(3rem);
   -moz-transform: scaleX(.9) translateY(3rem);
@@ -114,12 +104,32 @@ body.landing {
   -webkit-transition-delay: .2s;
   -moz-transition-delay: .2s;
   transition-delay: .2s;
-  /* animations */
+  /* Animation for hero-title */
 }
 
-.point .point-title {
-  font-size: 1.25rem;
+/************************* SELLING POINTS ****************************/
+
+.selling-points { position: relative; }
+
+.point {
+  position: relative;
+  padding: 2rem;
+  text-align: center;
+  /* Animation for selling points */
+  opacity: 0;
+  -webkit-transform: scaleX(.9) translateY(3rem);
+  -moz-transform: scaleX(.9) translateY(3rem);
+  transform: scaleX(.9) translateY(3rem);
+  -webkit-transition: all .25s ease-in-out;
+  -moz-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+  -webkit-transition-delay: .2s;
+  -moz-transition-delay: .2s;
+  transition-delay: .2s;
+  /* Animation for selling points */
 }
+
+.point .point-title { font-size: 1.25rem; }
 
 .ion-music-note,
 .ion-radio-waves,
@@ -135,8 +145,14 @@ body.landing {
   max-width: 64rem;
 }
 
-.container.narrow {
-    max-width: 56rem;
+.container.narrow { max-width: 56rem; }
+
+/* Phones */
+@media (min-width: 320px)
+   and (max-width: 640px){
+  .hero-content .hero-title {
+    top: 15%;
+  }
 }
 
 /* Medium and Small screens */
