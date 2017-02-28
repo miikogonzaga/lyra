@@ -22,7 +22,6 @@ const albumOkComputer = {
 
 // Creates song rows
 const createSongRow = (songNumber, songName, songLength) => {
-
   const template =
      '<tr class="album-view-song-item">'
    + '  <td class="song-item-number">' + songNumber + '</td>'
@@ -36,7 +35,6 @@ const createSongRow = (songNumber, songName, songLength) => {
 
 // Sets the current album
 const setCurrentAlbum = (album) => {
-
   const albumTitle = document.getElementsByClassName('album-view-title')[0];
   const albumArtist = document.getElementsByClassName('album-view-artist')[0];
   const albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
@@ -57,10 +55,16 @@ const setCurrentAlbum = (album) => {
 
 const songListContainer = document.getElementsByClassName('album-view-song-list')[0]
 
+// Play button template
+const playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>'
+
 window.onload = () => {
   setCurrentAlbum(albumOkComputer)
 
+  // Adds the play button when hovering over the song number
   songListContainer.addEventListener('mouseover', (event) => {
-    console.log(event.target)
+    if (event.target.parentElement.className === 'album-view-song-item') {
+      event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate
+    }
   })
 }
