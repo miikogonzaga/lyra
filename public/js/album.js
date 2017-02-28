@@ -53,6 +53,7 @@ const setCurrentAlbum = (album) => {
 }
 
 const songListContainer = document.getElementsByClassName('album-view-song-list')[0]
+const songRows = document.getElementsByClassName('album-view-song-item')
 
 // Play button template
 const playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>'
@@ -60,10 +61,19 @@ const playButtonTemplate = '<a class="album-song-button"><span class="ion-play">
 window.onload = () => {
   setCurrentAlbum(albumOkComputer)
 
-  // Adds the play button when hovering over the song number
+  // Renders the play button when hovering over the song number
   songListContainer.addEventListener('mouseover', (event) => {
     if (event.target.parentElement.className === 'album-view-song-item') {
       event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate
     }
   })
+
+  // Loop which renders the track number after mouseleave
+  for (let i = 0; i < songRows.length; i++) {
+    songRows[i].addEventListener('mouseleave', function() {
+      // Selects first child element, which is the song-item-number element
+      this.children[0].innerHTML = this.children[0].getAttribute('data-song-number')
+    })
+  }
+
 }
