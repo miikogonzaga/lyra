@@ -34,29 +34,29 @@ const createSongRow = (songNumber, songName, songLength) => {
 
 // Sets the current album
 const setCurrentAlbum = (album) => {
-  const albumTitle = document.getElementsByClassName('album-view-title')[0];
-  const albumArtist = document.getElementsByClassName('album-view-artist')[0];
-  const albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
-  const albumImage = document.getElementsByClassName('album-cover-art')[0];
-  const albumSongList = document.getElementsByClassName('album-view-song-list')[0];
+  const albumTitle = document.getElementsByClassName('album-view-title')[0]
+  const albumArtist = document.getElementsByClassName('album-view-artist')[0]
+  const albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0]
+  const albumImage = document.getElementsByClassName('album-cover-art')[0]
+  const albumSongList = document.getElementsByClassName('album-view-song-list')[0]
 
-  albumTitle.textContent = album.title;
-  albumArtist.textContent = album.artist;
-  albumReleaseInfo.textContent = album.year + ' ' + album.label;
-  albumImage.setAttribute('src', album.albumArtUrl);
+  albumTitle.textContent = album.title
+  albumArtist.textContent = album.artist
+  albumReleaseInfo.textContent = album.year + ' ' + album.label
+  albumImage.setAttribute('src', album.albumArtUrl)
 
-  albumSongList.innerHTML = '';
+  albumSongList.innerHTML = ''
 
   for (let i = 0; i < album.songs.length; i++) {
       albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
   }
 }
 
-const songListContainer = document.getElementsByClassName('album-view-song-list')[0]
-const songRows = document.getElementsByClassName('album-view-song-item')
-
 // Play button template
 const playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>'
+
+const songListContainer = document.getElementsByClassName('album-view-song-list')[0]
+const songRows = document.getElementsByClassName('album-view-song-item')
 
 window.onload = () => {
   setCurrentAlbum(albumOkComputer)
