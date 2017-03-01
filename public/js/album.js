@@ -82,10 +82,33 @@ const getSongItem = (element) => {
   }
 }
 
+// Function which handles the click events for rendering pause icon & play icon
+const clickHandler = (targetElement) => {
+  let songItem = getSongItem(targetElement)
+
+  // Shows pause icon
+  if (currentlyPlayingSong === null) {
+    songItem.innerHTML = pauseButtonTemplate
+    currentlyPlayingSong = songItem.getAttribute('data-song-number')
+  }
+  // Shows play icon
+  else if (currentlyPlayingSong === songItem.getAttribute('data-song-number')) {
+    songItem.innerHTML = playButtonTemplate
+    currentlyPlayingSong = null
+  }
+  // Shows pause icon when clicking other song rows
+  else if (currentlyPlayingSong !== songItem.getAttribute('data-song-number')) {
+    let currentlyPlayingSongElement = document.querySelector('[data-song-number="' + currentlyPlayingSong + '"]')
+    currentlyPlayingSongElement.innerHTML = currentlyPlayingSongElement.getAttribute('data-song-number')
+    songItem.innerHTML = pauseButtonTemplate
+    currentlyPlayingSong = songItem.getAttribute('data-song-number')
+  }
+}
+
+let currentlyPlayingSong = null
+
 const playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>'
 const pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause"></span></a>'
-
-const currentlyPlayingSong = null
 
 const songListContainer = document.getElementsByClassName('album-view-song-list')[0]
 const songRows = document.getElementsByClassName('album-view-song-item')
@@ -107,8 +130,8 @@ window.onload = () => {
       this.children[0].innerHTML = this.children[0].getAttribute('data-song-number')
     })
 
-    songRows[i].addEventListener('click', () => {
-
+    songRows[i].addEventListener('click', (event) => {
+      clickHandler(event.target)
     })
   }
 
