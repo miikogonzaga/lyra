@@ -120,16 +120,27 @@ window.onload = () => {
   songListContainer.addEventListener('mouseover', (event) => {
     if (event.target.parentElement.className === 'album-view-song-item') {
       event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate
+
+      let songItem = getSongItem(event.target)
+
+      if (songItem.getAttribute('data-song-number') !== currentlyPlayingSong) {
+        songItem.innerHTML = playButtonTemplate
+      }
     }
   })
 
-  // Loop which renders the track number after mouseleave
   for (let i = 0; i < songRows.length; i++) {
-    songRows[i].addEventListener('mouseleave', function() {
-      // Selects first child element, which is the song-item-number element
-      this.children[0].innerHTML = this.children[0].getAttribute('data-song-number')
+    // Keeps the play & pause icon visible on mouseleave
+    songRows[i].addEventListener('mouseleave', function(event) {
+      let songItem = getSongItem(event.target)
+      let songItemNumber = songItem.getAttribute('data-song-number')
+
+      if (songItemNumber !== currentlyPlayingSong) {
+        songItem.innerHTML = songItemNumber
+      }
     })
 
+    // Shows play & pause button when clicking
     songRows[i].addEventListener('click', (event) => {
       clickHandler(event.target)
     })
