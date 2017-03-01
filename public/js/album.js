@@ -52,8 +52,63 @@ const setCurrentAlbum = (album) => {
   }
 }
 
-// Play button template
+// Function which looks up the DOM tree to find a parent element
+const findParentByClassName = (element, targetClass) => {
+  if (element) {
+    let currentParent = element.parentElement
+    while (currentParent.className != targetClass && currentParent.className !== null) {
+      currentParent = currentParent.parentElement
+    }
+    return currentParent
+  }
+}
+
+// Function which returns a songs class value
+const getSongItem = (element) => {
+  switch (element.className) {
+    case 'album-song-button':
+    case 'ion-play':
+    case 'ion-pause':
+      return findParentByClassName(element, 'song-item-number')
+    case 'album-view-song-item':
+      return element.querySelector('.song-item-number')
+    case 'song-item-title':
+    case 'song-item-duration':
+      return findParentByClassName(element, 'album-view-song-item').querySelector('.song-item-number')
+    case 'song-item-number':
+      return element
+    default:
+      return
+  }
+}
+
+// Function which handles the click events for rendering pause icon & play icon
+const clickHandler = (targetElement) => {
+  let songItem = getSongItem(targetElement)
+
+  // Shows pause icon
+  if (currentlyPlayingSong === null) {
+    songItem.innerHTML = pauseButtonTemplate
+    currentlyPlayingSong = songItem.getAttribute('data-song-number')
+  }
+  // Shows play icon
+  else if (currentlyPlayingSong === songItem.getAttribute('data-song-number')) {
+    songItem.innerHTML = playButtonTemplate
+    currentlyPlayingSong = null
+  }
+  // Shows pause icon when clicking other song rows
+  else if (currentlyPlayingSong !== songItem.getAttribute('data-song-number')) {
+    let currentlyPlayingSongElement = document.querySelector('[data-song-number="' + currentlyPlayingSong + '"]')
+    currentlyPlayingSongElement.innerHTML = currentlyPlayingSongElement.getAttribute('data-song-number')
+    songItem.innerHTML = pauseButtonTemplate
+    currentlyPlayingSong = songItem.getAttribute('data-song-number')
+  }
+}
+
+let currentlyPlayingSong = null
+
 const playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>'
+const pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause"></span></a>'
 
 const songListContainer = document.getElementsByClassName('album-view-song-list')[0]
 const songRows = document.getElementsByClassName('album-view-song-item')
@@ -65,14 +120,29 @@ window.onload = () => {
   songListContainer.addEventListener('mouseover', (event) => {
     if (event.target.parentElement.className === 'album-view-song-item') {
       event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate
+
+      let songItem = getSongItem(event.target)
+
+      if (songItem.getAttribute('data-song-number') !== currentlyPlayingSong) {
+        songItem.innerHTML = playButtonTemplate
+      }
     }
   })
 
-  // Loop which renders the track number after mouseleave
   for (let i = 0; i < songRows.length; i++) {
-    songRows[i].addEventListener('mouseleave', function() {
-      // Selects first child element, which is the song-item-number element
-      this.children[0].innerHTML = this.children[0].getAttribute('data-song-number')
+    // Keeps the play & pause icon visible on mouseleave
+    songRows[i].addEventListener('mouseleave', function(event) {
+      let songItem = getSongItem(event.target)
+      let songItemNumber = songItem.getAttribute('data-song-number')
+
+      if (songItemNumber !== currentlyPlayingSong) {
+        songItem.innerHTML = songItemNumber
+      }
+    })
+
+    // Shows play & pause button when clicking
+    songRows[i].addEventListener('click', (event) => {
+      clickHandler(event.target)
     })
   }
 
