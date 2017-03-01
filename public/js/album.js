@@ -82,8 +82,10 @@ const getSongItem = (element) => {
   }
 }
 
-// Play button template
 const playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>'
+const pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause"></span></a>'
+
+const currentlyPlayingSong = null
 
 const songListContainer = document.getElementsByClassName('album-view-song-list')[0]
 const songRows = document.getElementsByClassName('album-view-song-item')
@@ -103,6 +105,10 @@ window.onload = () => {
     songRows[i].addEventListener('mouseleave', function() {
       // Selects first child element, which is the song-item-number element
       this.children[0].innerHTML = this.children[0].getAttribute('data-song-number')
+    })
+
+    songRows[i].addEventListener('click', () => {
+
     })
   }
 
