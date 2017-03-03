@@ -147,3 +147,30 @@
   vertical-align: middle;
 }
 /* Volume Controls */
+
+@media (max-width: 640px) {
+  .player-bar {
+    padding: 1rem;
+    background-color: rgba(0,0,0,.6);
+  }
+
+  .player-bar .main-controls,
+  .player-bar .currently-playing,
+  .player-bar .volume {
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .player-bar .main-controls,
+  .player-bar .volume { min-height: 3.5rem; }
+
+  .player-bar .currently-playing { min-height: 2.5rem; }
+
+  .player-bar .artist-name,
+  .player-bar .song-name { display: none; }
+
+  .player-bar .currently-playing .artist-song-mobile { display: block; }
+}
