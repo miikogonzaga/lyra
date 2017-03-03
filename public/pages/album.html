@@ -45,6 +45,7 @@
     <!-- Music Player Controls -->
     <section class="player-bar">
       <div class="container">
+        <!-- Play, Next, & previous buttons -->
         <div class="control-group main-controls">
           <a class="previous">
             <span class="ion-skip-backward"></span>
@@ -56,6 +57,8 @@
             <span class="ion-skip-forward"></span>
           </a>
         </div>
+
+        <!-- Currently Playing + Seek Bar -->
         <div class="control-group currently-playing">
           <h2 class="song-name">Let Down</h2>
             <!-- Seek Bar -->
@@ -70,7 +73,16 @@
           <h2 class="artist-song-mobile">Let Down - Radiohead</h2>
           <h3 class="artist-name">Radiohead</h3>
         </div>
-        <div class="control-group volume"></div>
+
+        <!-- Volume Controls -->
+        <div class="control-group volume">
+          <span class="ion-volume-high icon"></span>
+          <div class="seek-bar">
+            <div class="fill"></div>
+            <div class="thumb"></div>
+          </div>
+        </div>
+
       </div>
     </section>
     <script src="../js/album.js"></script>
