@@ -8,6 +8,11 @@
   z-index: 100;
 }
 
+.player-bar a {
+  font-size: 1.1rem;
+  vertical-align: middle;
+}
+
 .player-bar a,
 .player-bar a:hover {
   color: white;
@@ -32,6 +37,15 @@
   text-align: left;
   padding-right: 1rem;
 }
+
+/* Play / Next / Previous Buttons */
+.player-bar .main-controls .previous { margin-right: 16.5%; }
+
+.player-bar .main-controls .play-pause {
+  margin-right: 15%;
+  font-size: 1.6rem;
+}
+/* Play / Next / Previous Buttons */
 
 .player-bar .currently-playing {
   width: 50%;
