@@ -1,5 +1,5 @@
 # Lyra
-Lyra is a mobile responsive Front-End only Spotify inspired clone. It was built with HTML5, CSS3, and vanilla JavaScript. 
+Lyra is a mobile responsive Front-End only Spotify inspired clone. It was built with `HTML5`, `CSS3`, and `vanilla JavaScript`. 
 
 ## Technologies
 - HTML5
