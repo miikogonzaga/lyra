@@ -11,4 +11,6 @@ Lyra is a mobile responsive Front-End only Spotify inspired clone. It was built 
 ![screen shot 2017-03-03 at 9 53 49 am](https://cloud.githubusercontent.com/assets/14193267/23562477/72f59978-fff7-11e6-8271-61405127935c.png)
 ![screen shot 2017-03-03 at 9 31 53 am](https://cloud.githubusercontent.com/assets/14193267/23562484/76575c46-fff7-11e6-9736-19ba8fc40d7c.png)
 ![screen shot 2017-03-03 at 9 32 28 am](https://cloud.githubusercontent.com/assets/14193267/23562483/7654113a-fff7-11e6-8cd9-e800aee2d65f.png)
-- http://g.recordit.co/pjWoZ4h5PA.gif
+
+## View Live
+ - https://gabrielmgonzaga.github.io/lyra
